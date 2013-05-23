@@ -95,33 +95,32 @@ public final class MyScreen extends MainScreen implements FieldChangeListener {
 	}
 
 	public void fieldChanged(Field field, int context) {
-		//COMENTARIOS: en ves de MENUGESTION deben ponerle el nombre de el sreen
-		//que crearon para que les muestre el menu de tablas
-		//pueden tomar como ejemplo el mio, " btnfield5 "
-		/*
+		// COMENTARIOS: en ves de MENUGESTION deben ponerle el nombre de el
+		// sreen
+		// que crearon para que les muestre el menu de tablas
+		// pueden tomar como ejemplo el mio, " btnfield5 "
+
 		if (field == btnfield1) {
 
 			UiApplication.getUiApplication().pushScreen(
-					new MenuGestion("Admin. de Catalogos"));
+					new GestionCatalogosMenu("Admin. de Catalogos"));
 		}
-		if (field == btnfield2) {
-
-			UiApplication.getUiApplication().pushScreen(
-					new MenuGestion("Admin. de docentes"));
-		}
-		if (field == btnfield3) {
-
-			UiApplication.getUiApplication().pushScreen(
-					new MenuGestion("Admin. de Materias"));
-
-		}
-		if (field == btnfield4) {
-
-			UiApplication.getUiApplication().pushScreen(
-					new MenuGestion("Admin. Actividades Academicas"));
-
-		}
-		*/
+		/*
+		 * if (field == btnfield2) {
+		 * 
+		 * UiApplication.getUiApplication().pushScreen( new
+		 * MenuGestion("Admin. de docentes")); } if (field == btnfield3) {
+		 * 
+		 * UiApplication.getUiApplication().pushScreen( new
+		 * MenuGestion("Admin. de Materias"));
+		 * 
+		 * } if (field == btnfield4) {
+		 * 
+		 * UiApplication.getUiApplication().pushScreen( new
+		 * MenuGestion("Admin. Actividades Academicas"));
+		 * 
+		 * }
+		 */
 		if (field == btnfield5) {
 
 			UiApplication.getUiApplication().pushScreen(

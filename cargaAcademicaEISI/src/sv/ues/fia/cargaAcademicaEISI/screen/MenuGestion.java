@@ -59,6 +59,9 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 				UiApplication.getUiApplication().pushScreen(new DetalleCargaMatInsertarScreen());
 			if (nombre == "Carga Actividades Academicas")
 				UiApplication.getUiApplication().pushScreen(new DetalleCargaActAcadInsertarScreen());
+			/*Mario*/
+			if (nombre == "Admin. de Catalogos")
+				UiApplication.getUiApplication().pushScreen(new DepartamentoInsertarScreen());
 		}
 		
 		if (field == btnfield2) {
