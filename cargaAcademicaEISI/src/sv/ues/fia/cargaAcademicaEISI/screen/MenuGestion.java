@@ -74,6 +74,12 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 			if (nombre == "Gestion tabla Materia")
 				UiApplication.getUiApplication().pushScreen(
 						new MateriaInsertarScreen());
+			if (nombre == "Gestion tabla Area de Materia")
+				UiApplication.getUiApplication().pushScreen(
+						new AreaMateriaInsertarScreen());
+			if (nombre == "Gestion tabla Detalle Gpo Asignado")
+				UiApplication.getUiApplication().pushScreen(
+						new DetGpoAsignadoInsertarScreen());
 		}
 
 		if (field == btnfield2) {
@@ -100,6 +106,12 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 				UiApplication.getUiApplication().pushScreen(
 						new DepartamentoConsultarScreen());
 			if (nombre == "Gestion tabla Materia")
+				UiApplication.getUiApplication().pushScreen(
+						new MateriaConsultarScreen());
+			if (nombre == "Gestion tabla Area de Materia")
+				UiApplication.getUiApplication().pushScreen(
+						new MateriaConsultarScreen());
+			if (nombre == "Gestion tabla Detalle Gpo Asignado")
 				UiApplication.getUiApplication().pushScreen(
 						new MateriaConsultarScreen());
 		}
