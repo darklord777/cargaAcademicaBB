@@ -43,10 +43,10 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 		btnfield4.setChangeListener(this);
 
 		grid.insert(btnfield1, 0, 0);
-		if (nombre != "Gestion tabla Carga Academica"
-				&& nombre != "Gestion tabla Detalle Materias")
+		if (nombre != "Gestion tabla Carga Academica" && nombre != "Gestion tabla Detalle Materias"  && nombre != "Carga Actividades Academicas")
 			grid.insert(btnfield2, 0, 1);
-
+		
+		
 		grid.insert(btnfield3, 1, 0);
 		grid.insert(btnfield4, 1, 1);
 
@@ -92,6 +92,9 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 			if (nombre == "Gestion tabla Detalle Materias")
 				UiApplication.getUiApplication().pushScreen(
 						new DetalleCargaMatConsultarScreen());
+			if (nombre == "Carga Actividades Academicas")
+				UiApplication.getUiApplication().pushScreen(new DetalleCargaActAcadConsultarScreen());
+
 			/* Mario */
 			if (nombre == "Gestion tabla Departamento")
 				UiApplication.getUiApplication().pushScreen(
@@ -108,6 +111,11 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 			if (nombre == "Gestion tabla Carga Academica")
 				UiApplication.getUiApplication().pushScreen(
 						new CargaAcademicaEliminarScreen());
+			if (nombre == "Gestion tabla Detalle Materias")
+				UiApplication.getUiApplication().pushScreen(new DetalleCargaMatEliminarScreen());
+			if (nombre == "Carga Actividades Academicas")
+				UiApplication.getUiApplication().pushScreen(new DetalleCargaActAcadEliminarScreen());
+			
 
 		}
 	}
