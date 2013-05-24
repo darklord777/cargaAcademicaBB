@@ -3,7 +3,7 @@ package sv.ues.fia.cargaAcademicaEISI;
 public class Cargo {
 	private String idCargo;
 	private String Nombre_Cargo;
-	
+	 
 	public Cargo(){
 		
 	}

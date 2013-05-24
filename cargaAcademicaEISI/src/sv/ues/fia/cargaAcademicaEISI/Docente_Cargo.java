@@ -7,7 +7,7 @@ public class Docente_Cargo {
 	private String IdCargo;
 	
 	public Docente_Cargo(){
-	}
+	} 
 	public Docente_Cargo(String IdDocCar, String IdDocente, String IdPeriodo, String IdCargo) {
 	this.IdDocCar = IdDocCar;
 	this.IdDocente = IdDocente;

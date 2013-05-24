@@ -6,7 +6,7 @@ public class Periodo {
 	private String FechaIni;
 	private String FechaFin;
 	public Periodo(){
-	}
+	} 
 	public Periodo(String IdPeriodo, String FechaIni, String FechaFin) {
 	this.IdPeriodo = IdPeriodo;
 	this.FechaIni = FechaIni;
