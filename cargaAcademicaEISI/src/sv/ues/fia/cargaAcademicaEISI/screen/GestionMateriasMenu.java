@@ -31,10 +31,10 @@ public class GestionMateriasMenu extends MainScreen implements
 		bmp0 = Bitmap.getBitmapResource("buttonback.png");
 
 		lb1 = new LabelField("Tabla Materia");
-		lb1 = new LabelField("Tabla Area de Materia");
-		lb1 = new LabelField("Tabla Detalle grupo asignado");
+		lb2 = new LabelField("Tabla Area de Materia");
+		lb3 = new LabelField("Tabla Detalle grupo asignado");
 
-		GridFieldManager grid = new GridFieldManager(2, 3,
+		GridFieldManager grid = new GridFieldManager(4, 4,
 				GridFieldManager.USE_ALL_HEIGHT
 						| GridFieldManager.USE_ALL_HEIGHT
 						| GridFieldManager.FIXED_SIZE);
@@ -55,7 +55,7 @@ public class GestionMateriasMenu extends MainScreen implements
 		grid.insert(lb2, 1, 1);
 
 		grid.insert(gstDetGpoAsig, 2, 0);
-		grid.insert(lb2, 2, 1);
+		grid.insert(lb3, 2, 1);
 
 		add(grid);
 	}
@@ -66,7 +66,7 @@ public class GestionMateriasMenu extends MainScreen implements
 				UiApplication.getUiApplication().pushScreen(
 						new MenuGestion("Gestion tabla Materia"));
 		}
-		if (field == gstMateria) {
+		if (field == gstAreaMateria) {
 			if (nombre == "Admin. de Materias")
 				UiApplication.getUiApplication().pushScreen(
 						new MenuGestion("Gestion tabla Area de Materia"));
