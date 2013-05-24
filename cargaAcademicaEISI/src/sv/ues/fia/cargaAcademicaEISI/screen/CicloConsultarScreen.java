@@ -20,7 +20,7 @@ public class CicloConsultarScreen extends MainScreen  implements FieldChangeList
 		private LabelField lb1;
 
 		public CicloConsultarScreen() {
-			setTitle("Consultar Ciclo");
+			setTitle("Consultar Alumno");
 			bdh = new ControlBD();
 			anio = new EditField("Año a Consultar:  ", "", 4, EditField.FILTER_NUMERIC);
 			numero = new EditField("Ciclo a Consultar:  ", "", 30,EditField.FILTER_NUMERIC);
