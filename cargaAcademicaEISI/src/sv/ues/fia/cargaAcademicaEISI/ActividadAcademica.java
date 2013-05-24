@@ -5,7 +5,7 @@ public class ActividadAcademica {
 	private String idModalActAcad;
 	private String NombreActAcademica;
 	private String Cargo;
-	
+	 
 	public ActividadAcademica(){		
 	}
 
