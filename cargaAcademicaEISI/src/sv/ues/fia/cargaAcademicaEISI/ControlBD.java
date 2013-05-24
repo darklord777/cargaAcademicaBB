@@ -1186,6 +1186,218 @@ public class ControlBD {
 	}
 	
 	// METODOS SERGIO
+	public boolean Insertar(Cargo c){
+		try {
+			Statement st = db.createStatement("INSERT INTO CARGO(IDCARGO,NOM_CARGO) VALUES (?,?)");
+			st.prepare();
+			st.bind(1, c.getIdCargo());
+			st.bind(2, c.getNombreCargo());
+			st.execute();
+			st.close();
+			return true;
+			} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+			}
+			}
+	
+	public boolean Insertar (Docente_Cargo dc){
+		try {
+			Statement st = db.createStatement("INSERT INTO DOCENTE_CARGO(IDDOCCAR,IDDOCENTE,IDPERIODO,IDCARGO) VALUES (?,?,?,?)");
+			st.prepare();
+			st.bind(1, dc.getIdDocCar());
+			st.bind(2, dc.getIdDocente());
+			st.bind(3, dc.getIdPeriodo());
+			st.bind(4, dc.getIdCargo());
+
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public boolean Insertar (Periodo p){
+		try {
+			Statement st = db.createStatement("INSERT INTO PERIODO(IDPERIOD,FECHA_INI,FECHA_FIN) VALUES (?,?,?)");
+			st.prepare();
+			st.bind(1, p.getIdPeriodo());
+			st.bind(2, p.getFechaIni());
+			st.bind(3, p.getFechaFin());
+			st.execute();
+			st.close();
+			return true;
+			} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+			}
+		
+	}
+	public Cargo ConsultarCargo (String idcargo){
+		Cargo al = new Cargo();
+		try
+		{
+		Statement st = db.createStatement("SELECT IDCARGO,NOM_CARGO FROM CARGO WHERE IDCARGO=?");
+		st.prepare();
+		st.bind(1, idcargo);
+		Cursor c = st.getCursor();
+		Row r;
+		if(c.next())
+		{
+		r = c.getRow();
+		al.setIdCargo(idcargo);
+		al.setNombreCargo(r.getString(0));
+		st.close();
+		}
+		else
+		{
+		st.close();
+		al = null;
+		}
+		}
+		catch ( Exception e )
+		{
+		System.out.println( e.getMessage() );
+		e.printStackTrace();
+		al =null;
+		}
+		return al;
+		
+	}
+	public Periodo ConsultarPeriodo(String idperiodo){
+	Periodo p = new Periodo();
+	try
+	{
+	Statement st = db.createStatement("SELECT IDPERIODO,FECHA_INI,FECHA_FIN FROM PERIODO WHERE IDPERIODO=?");
+	st.prepare();
+	st.bind(1, idperiodo);
+	Cursor c = st.getCursor();
+	Row r;
+	if(c.next())
+	{
+	r = c.getRow();
+	p.setIdPeriodo(idperiodo);
+	p.setFechaIni(r.getString(0));
+	p.setFechaFin(r.getString(0));
+	st.close();
+	}
+	else
+	{
+	st.close();
+	p = null;
+	}
+	}
+	catch ( Exception e )
+	{
+	System.out.println( e.getMessage() );
+	e.printStackTrace();
+	p =null;
+	}
+	return p;
+	}
+
+	public Docente_Cargo ConsultarDocenteCargo(String iddoccar){
+		Docente_Cargo dc = new Docente_Cargo();
+		try {
+			Statement st = db.createStatement("SELECT IDDOCENTE, IDPERIODO, IDCARGO FROM DOCENTE_CARGO WHERE IDDOCCAR=?");
+		st.prepare();
+		st.bind(1, iddoccar);
+		Cursor c = st.getCursor();
+		Row r;
+		if (c.next()) {
+			r = c.getRow();
+			dc.setIdDocCar(iddoccar);
+			dc.setIdDocente(r.getString(0));
+			dc.setIdPeriodo(r.getString(1));
+			dc.setIdCargo(r.getString(2));
+			st.close();
+		} else {
+			st.close();
+			dc = null;
+		}
+	} catch (Exception e) {
+		System.out.println(e.getMessage());
+		e.printStackTrace();
+		dc = null;
+	}
+	return dc;
+
+}
+
+
+public boolean Actualizar (Cargo c){
+	try
+	{
+	Statement st = db.createStatement("UPDATE CARGO SET NOM_CARGO=? WHERE IDCARGO=?");
+	st.prepare();
+	st.bind(1, c.getNombreCargo());
+	st.bind(2, c.getIdCargo());
+	st.execute();
+	st.close();
+	return true;
+	}
+	catch ( Exception e )
+	{
+	System.out.println( e.getMessage() );
+	e.printStackTrace();
+	return false;
+	}
+}
+public boolean Actualizar (Periodo p){
+try
+{
+Statement st = db.createStatement("UPDATE PERIODO SET FECHA_INI=?,FECHA_FIN=? WHERE IDPERIODO=?");
+st.prepare();
+st.bind(1, p.getFechaIni());
+st.bind(2, p.getFechaFin());
+st.bind(3, p.getIdPeriodo());
+st.execute();
+st.close();
+return true;
+}
+catch ( Exception e )
+{
+System.out.println( e.getMessage() );
+e.printStackTrace();
+return false;
+}
+}
+public boolean EliminarCargo(String idcargo){
+	try
+	{
+	Statement st = db.createStatement("DELETE FROM CARGO WHERE IDCARGO=?");
+	st.prepare();
+	st.bind(1,idcargo);
+	st.execute();
+	st.close();
+	return true;
+	}
+	catch ( Exception e )
+	{
+	System.out.println( e.getMessage() );
+	e.printStackTrace();
+	return false;
+	}
+}
+public boolean EliminarPeriodo(String idperiodo){
+try
+{
+Statement st = db.createStatement("DELETE FROM PERIODO WHERE IDPERIODO =?");
+st.prepare();
+st.bind(1,idperiodo);
+st.execute();
+st.close();
+return true;
+}
+catch ( Exception e )
+{
+System.out.println( e.getMessage() );
+e.printStackTrace();
+return false;
+}
+}
+	
 	// ----------------------------------------------------------------------------------
 
 }// fin clase ControlBD
