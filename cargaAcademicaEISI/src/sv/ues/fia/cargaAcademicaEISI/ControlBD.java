@@ -294,28 +294,25 @@ public class ControlBD {
 	// METODOS ALEXIS
 	// ----------------------------------------------------------------------------------
 	// INSERTAR EN TABLA CICLO
-	public boolean Insertar(Ciclo a) {
+	public boolean Insertar(Ciclo a){
+		  try {
+		   Statement st = db.createStatement("INSERT INTO CICLO(ANIO,NUMERO,FECHAINI,FECHAFIN) VALUES (?,?,?,?)");
+		   st.prepare();
+		   st.bind(1, a.getAnio());
+		   st.bind(2, a.getNumero());
+		   st.bind(3, a.getFechaini());
+		   st.bind(4, a.getFechafin());
+		   st.execute();
+		   st.close();
+		   return true;
+		  } catch (Exception e) {
+		   e.printStackTrace();
+		   return false;
+		  }
+		} 
+	public boolean EliminarCiclo(String anio,String numero) {
 		try {
-			Statement st = db
-					.createStatement("INSERT INTO CICLO(ANIO,NUMERO,FECHAINI,FECHAFIN) VALUES (?,?,?,?)");
-			st.prepare();
-			st.bind(1, a.getAnio());
-			st.bind(2, a.getNumero());
-			st.bind(3, a.getFechaini());
-			st.bind(4, a.getFechafin());
-			st.execute();
-			st.close();
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-	public boolean EliminarCiclo(String anio, String numero) {
-		try {
-			Statement st = db
-					.createStatement("DELETE FROM CICLO WHERE ANIO=? AND NUMERO=?");
+			Statement st = db.createStatement("DELETE FROM CICLO WHERE ANIO='?' AND NUMERO='?'");
 			st.prepare();
 			st.bind(1, anio);
 			st.bind(2, numero);
@@ -328,8 +325,8 @@ public class ControlBD {
 			return false;
 		}
 	}
-
-	public Ciclo ConsultarCiclo(String anio, String numero) {
+	
+	public Ciclo ConsultarCiclo(String anio,String numero ) {
 		Ciclo al = new Ciclo();
 		try {
 			Statement st = db
@@ -357,7 +354,7 @@ public class ControlBD {
 		}
 		return al;
 	}
-
+	
 	public boolean Actualizar(Ciclo al) {
 		try {
 			Statement st = db
@@ -374,11 +371,9 @@ public class ControlBD {
 			return false;
 		}
 	}
-
 	public boolean Insertar(CargaAcademica n) {
 		try {
-			Statement st = db
-					.createStatement("INSERT INTO CARGA_ACADEMICA(IDDOCENTE,ANIO,NUMERO) VALUES (?,?,?)");
+			Statement st = db.createStatement("INSERT INTO CARGA_ACADEMICA(IDDOCENTE,ANIO,NUMERO) VALUES (?,?,?)");
 			st.prepare();
 			st.bind(1, n.getIddocente());
 			st.bind(2, n.getAnio());
@@ -392,21 +387,17 @@ public class ControlBD {
 			return false;
 		}
 	}
-
-	public CargaAcademica ConsultarCargaAcademica(String iddocente,
-			String anio, String numero) {
+	public CargaAcademica ConsultarCargaAcademica(String iddocente, String anio, String numero) {
 		CargaAcademica nt = new CargaAcademica();
 		try {
-			Statement st = db
-					.createStatement("SELECT * FROM CARGA_ACADEMICA WHERE IDDOCENTE=? AND ANIO=? AND NUMERO=?");
+			Statement st = db.createStatement("SELECT * FROM CARGA_ACADEMICA WHERE IDDOCENTE=? AND ANIO=? AND NUMERO=?");
 			st.prepare();
 			st.bind(1, iddocente);
 			st.bind(2, anio);
 			st.bind(3, numero);
 			Cursor c = st.getCursor();
 			Row r;
-			Statement st2 = db
-					.createStatement("SELECT NOMBRE FROM DOCENTE WHERE IDDOCENTE=?");
+			Statement st2 = db.createStatement("SELECT NOMBRE FROM DOCENTE WHERE IDDOCENTE=?");
 			st2.prepare();
 			st2.bind(1, iddocente);
 			Cursor c2 = st2.getCursor();
@@ -428,9 +419,7 @@ public class ControlBD {
 		}
 		return nt;
 	}
-
-	public boolean EliminarCargaAcademica(String iddocente, String anio,
-			String numero) {
+	public boolean EliminarCargaAcademica(String iddocente, String anio, String numero) {
 		try {
 			Statement st = db
 					.createStatement("DELETE FROM CARGA_ACADEMICA WHERE IDDOCENTE=? AND ANIO=? AND NUMERO=?");
@@ -447,9 +436,8 @@ public class ControlBD {
 			return false;
 		}
 	}
-
-	public boolean VerificarEliminarCargaAcademica(String iddocente,
-			String anio, String numero) {
+	
+	public boolean VerificarEliminarCargaAcademica(String iddocente, String anio, String numero) {
 		try {
 			Statement st = db
 					.createStatement("SELECT * FROM DETALLE_CARGA_MAT WHERE IDDOCENTE=? AND ANIO=? AND NUMERO=?");
@@ -466,11 +454,12 @@ public class ControlBD {
 			return false;
 		}
 	}
-
+	
+	
+	
 	public boolean Insertar(DetalleCargaMat n) {
 		try {
-			Statement st = db
-					.createStatement("INSERT INTO DETALLE_CARGA_MAT(IDDOCENTE,ANIO,NUMERO,IDDETALLECURSO) VALUES (?,?,?,?)");
+			Statement st = db.createStatement("INSERT INTO DETALLE_CARGA_MAT(IDDOCENTE,ANIO,NUMERO,IDDETALLECURSO) VALUES (?,?,?,?)");
 			st.prepare();
 			st.bind(1, n.getIddocente());
 			st.bind(2, n.getAnio());
@@ -485,9 +474,8 @@ public class ControlBD {
 			return false;
 		}
 	}
-
-	public boolean VerificarInsertarDetalleCArgaMat(String iddocente,
-			String anio, String numero, String iddetallecurso) {
+	
+	public boolean VerificarInsertarDetalleCArgaMat(String iddocente, String anio, String numero, String iddetallecurso) {
 		try {
 			Statement st = db
 					.createStatement("SELECT * FROM DETALLE_CARGA_MAT WHERE IDDOCENTE=? AND ANIO=? AND NUMERO=? AND IDDETALLECURSO=?");
@@ -505,13 +493,12 @@ public class ControlBD {
 			return false;
 		}
 	}
-
-	public DetalleCargaMat ConsultarCargaMat(String iddocente, String anio,
-			String numero, String iddetallecurso) {
+	
+	
+		public DetalleCargaMat ConsultarCargaMat(String iddocente, String anio, String numero, String iddetallecurso) {
 		DetalleCargaMat nt = new DetalleCargaMat();
 		try {
-			Statement st = db
-					.createStatement("SELECT * FROM DETALLE_CARGA_MAT WHERE IDDOCENTE=? AND ANIO=? AND NUMERO=? AND IDDETALLECURSO=?");
+			Statement st = db.createStatement("SELECT * FROM DETALLE_CARGA_MAT WHERE IDDOCENTE=? AND ANIO=? AND NUMERO=? AND IDDETALLECURSO=?");
 			st.prepare();
 			st.bind(1, iddocente);
 			st.bind(2, anio);
@@ -519,8 +506,7 @@ public class ControlBD {
 			st.bind(4, iddetallecurso);
 			Cursor c = st.getCursor();
 			Row r;
-			Statement st2 = db
-					.createStatement("SELECT CODIGOMATERIA FROM DETALLE_GRUPO_ASIGNADO WHERE IDDETALLECURSO=?");
+			Statement st2 = db.createStatement("SELECT CODIGOMATERIA FROM DETALLE_GRUPO_ASIGNADO WHERE IDDETALLECURSO=?");
 			st2.prepare();
 			st2.bind(1, iddetallecurso);
 			Cursor c2 = st2.getCursor();
@@ -528,8 +514,7 @@ public class ControlBD {
 			if (c.next() && c2.next()) {
 				r = c.getRow();
 				r2 = c2.getRow();
-				nt.setIddocente(r2.getString(0));// manda codigo materias para
-													// mostrar en mensaje
+				nt.setIddocente(r2.getString(0));//manda codigo materias para mostrar en mensaje
 				nt.setAnio(anio);
 				nt.setNumero(numero);
 				nt.setIddetallecurso(iddetallecurso);
@@ -544,11 +529,9 @@ public class ControlBD {
 		}
 		return nt;
 	}
-
 	public boolean Insertar(DetalleCargaActAcad n) {
 		try {
-			Statement st = db
-					.createStatement("INSERT INTO DETALLE_CARGA_ACT_ACAD(IDDOCENTE,ANIO,NUMERO,IDACTACAD) VALUES (?,?,?,?)");
+			Statement st = db.createStatement("INSERT INTO DETALLE_CARGA_ACT_ACAD(IDDOCENTE,ANIO,NUMERO,IDACTACAD) VALUES (?,?,?,?)");
 			st.prepare();
 			st.bind(1, n.getIddocente());
 			st.bind(2, n.getAnio());
@@ -563,7 +546,66 @@ public class ControlBD {
 			return false;
 		}
 	}
+	
+	public boolean EliminarDetalleCargaMat(String iddocente, String anio, String numero,String iddetallecurso) {
+		try {
+			Statement st = db
+					.createStatement("DELETE FROM DETALLE_CARGA_MAT WHERE IDDOCENTE='?' AND ANIO='?' AND NUMERO='?' AND IDDETALLECURSO='?' ");
+			st.prepare();
+			st.bind(1, iddocente);
+			st.bind(2, anio);
+			st.bind(3, numero);
+			st.bind(4, iddetallecurso);
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
 
+
+	public boolean ConsultarActAcad(String iddocente, String anio, String numero,String idactacad) {
+		try {
+			Statement st = db
+					.createStatement("SELECT IDDOCENTE FROM DETALLE_CARGA_ACT_ACAD WHERE IDDOCENTE=? AND ANIO=? AND NUMERO=? AND IDACTACAD=? ");
+			st.prepare();
+			st.bind(1, iddocente);
+			st.bind(2, anio);
+			st.bind(3, numero);
+			st.bind(4, idactacad);
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public boolean EliminarDetalleActAcad(String iddocente, String anio, String numero,String idactacad) {
+		try {
+			Statement st = db
+					.createStatement("DELETE FROM DETALLE_CARGA_ACT_ACAD WHERE IDDOCENTE='?' AND ANIO='?' AND NUMERO='?' AND IDACTACAD='?' ");
+			st.prepare();
+			st.bind(1, iddocente);
+			st.bind(2, anio);
+			st.bind(3, numero);
+			st.bind(4, idactacad);
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	
+	
 	// METODOS MARIO
 	// ----------------------------------------------------------------------------------
 	public boolean Insertar(Departamento departamento) {
