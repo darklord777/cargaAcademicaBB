@@ -14,7 +14,7 @@ public class CargoEliminarScreen extends MainScreen implements FieldChangeListen
 	private ButtonField bt1;
 	public ControlBD bdh;
 	private LabelField lb1;
-	
+	 
 	public CargoEliminarScreen() {
 		setTitle("Eliminar Cargo");
 		bdh = new ControlBD();

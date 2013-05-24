@@ -5,7 +5,7 @@ import net.rim.device.api.ui.container.MainScreen;
 public class Docente_CargoEliminarScreen extends MainScreen {
 
 	/**
-	 * 
+	 *  
 	 */
 	public Docente_CargoEliminarScreen() {
 		super(MainScreen.VERTICAL_SCROLL | MainScreen.VERTICAL_SCROLLBAR);

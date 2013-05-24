@@ -4,7 +4,7 @@ import net.rim.device.api.ui.container.MainScreen;
 
 public class Docente_CargoInsertarScreen extends MainScreen {
 
-	/**
+	/** 
 	 * 
 	 */
 	public Docente_CargoInsertarScreen() {

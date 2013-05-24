@@ -15,7 +15,7 @@ public class CargoInsertarScreen extends MainScreen implements FieldChangeListen
 	private EditField nom_cargo;
 	private ButtonField bt1;
 	private LabelField lb1;
-	public ControlBD bdh;
+	public ControlBD bdh; 
 	
 	public CargoInsertarScreen() {
 		setTitle("Insertar Cargo");

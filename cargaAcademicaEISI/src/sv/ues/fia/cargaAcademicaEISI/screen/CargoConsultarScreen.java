@@ -16,7 +16,7 @@ public class CargoConsultarScreen extends MainScreen implements FieldChangeListe
 	private ButtonField bt1;
 	public ControlBD bdh;
 	private LabelField lb1;
-	
+	 
 	public CargoConsultarScreen() {
 		setTitle("Consultar Cargo");
 		bdh = new ControlBD();
