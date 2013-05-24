@@ -1019,6 +1019,172 @@ public class ControlBD {
 		}
 		return al;
 	}
+	
+	public Modalidad_Curso ConsultarModCurso (String idmodalidadCurso){
+		Modalidad_Curso al = new Modalidad_Curso();
+		try
+		{
+		Statement st = db.createStatement("SELECT idmodaliad,nom_modalidad, descuento_horas FROM modalidad_curso WHERE idmodalidad=?");
+		st.prepare();
+		st.bind(1, idmodalidadCurso);
+		Cursor c = st.getCursor();
+		Row r;
+		if(c.next())
+		{
+		r = c.getRow();
+		al.setIdModalCurso(idmodalidadCurso);
+		al.setNombreModal(r.getString(0));
+		al.setDescHoras(r.getInteger(1));		
+		st.close();
+		}
+		else
+		{
+		st.close();
+		al = null;
+		}
+		}
+		catch ( Exception e )
+		{
+		System.out.println( e.getMessage() );
+		e.printStackTrace();
+		al =null;
+		}
+		return al;
+	}
+	
+	public Modalidad_ActAcad ConsultarModActA (String idmodalidad){
+		Modalidad_ActAcad al = new Modalidad_ActAcad();
+		try
+		{
+		Statement st = db.createStatement("SELECT idmodaliad,nom_modalidad, descuento_horas FROM MODALIDAD_ACT_ACAD WHERE idmodalidad=?");
+		st.prepare();
+		st.bind(1, idmodalidad);
+		Cursor c = st.getCursor();
+		Row r;
+		if(c.next())
+		{
+		r = c.getRow();
+		al.setIdModalActAcad(idmodalidad);
+		al.setNombreModalAA(r.getString(0));
+		al.setDesHrsMAA(r.getInteger(1));		
+		st.close();
+		}
+		else
+		{
+		st.close();
+		al = null;
+		}
+		}
+		catch ( Exception e )
+		{
+		System.out.println( e.getMessage() );
+		e.printStackTrace();
+		al =null;
+		}
+		return al;
+	}
+	
+	public ActividadAcademica ConsultarActA (String idactacad){
+		ActividadAcademica al = new ActividadAcademica();
+		try
+		{
+		Statement st = db.createStatement("SELECT IDACTACAD,IDMODALIDAD, NOM_ACT_ACAD,CARGO FROM ACTIVIDAD_ACADEMICA WHERE IDACTACAD=?");
+		st.prepare();
+		st.bind(1, idactacad);
+		Cursor c = st.getCursor();
+		Row r;
+		if(c.next())
+		{
+		r = c.getRow();
+		al.setIdActividadAcad(idactacad);
+		al.setIdModalActAcad(r.getString(0));
+		al.setNombreActAcademica(r.getString(1));
+		al.setCargo(r.getString(2));
+		st.close();
+		}
+		else
+		{
+		st.close();
+		al = null;
+		}
+		}
+		catch ( Exception e )
+		{
+		System.out.println( e.getMessage() );
+		e.printStackTrace();
+		al =null;
+		}
+		return al;
+	}
+	
+	public boolean eliminarLocal(String idlocal){
+		try
+		{
+		Statement st = db.createStatement("DELETE FROM locales WHERE idlocal=?");
+		st.prepare();
+		st.bind(1, idlocal);
+		st.execute();
+		st.close();
+		return true;
+		}
+		catch ( Exception e )
+		{
+		System.out.println( e.getMessage() );
+		e.printStackTrace();
+		return false;
+		}
+		}
+	
+	public boolean eliminarModCurso(String idModCurso){
+		try
+		{
+		Statement st = db.createStatement("DELETE FROM MODALIDAD_CURSO WHERE  IDMODALIDAD=?");
+		st.prepare();
+		st.bind(1, idModCurso);
+		st.execute();
+		st.close();
+		return true;
+		}
+		catch ( Exception e )
+		{
+		System.out.println( e.getMessage() );
+		e.printStackTrace();
+		return false;
+		}
+		}
+	
+	public boolean EliminarModActA(String idmodaAA) {
+		try {
+			Statement st = db
+					.createStatement("DELETE FROM MODALIDAD_ACT_ACAD WHERE IDMODALIDAD=?");
+			st.prepare();
+			st.bind(1, idmodaAA);
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean EliminarActA(String idActA) {
+		try {
+			Statement st = db
+					.createStatement("DELETE FROM ACTIVIDAD_ACADEMICA WHERE IDACTACAD=?");
+			st.prepare();
+			st.bind(1, idActA);
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	// METODOS SERGIO
 	// ----------------------------------------------------------------------------------
 
