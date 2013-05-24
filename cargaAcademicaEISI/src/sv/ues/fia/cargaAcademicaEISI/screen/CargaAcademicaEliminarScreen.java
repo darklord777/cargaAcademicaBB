@@ -52,5 +52,4 @@ public class CargaAcademicaEliminarScreen extends MainScreen  implements FieldCh
 
   }
 
-
 }
