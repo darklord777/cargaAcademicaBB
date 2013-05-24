@@ -17,7 +17,7 @@ public class PeriodoActualizarScreen extends MainScreen implements FieldChangeLi
 	private EditField fecha_fin;
 	private ButtonField bt1;
 	public ControlBD bdh;
-	private LabelField lb1;
+	private LabelField lb1; 
 	
 	public PeriodoActualizarScreen() {
 		setTitle("Actualizar Periodo");

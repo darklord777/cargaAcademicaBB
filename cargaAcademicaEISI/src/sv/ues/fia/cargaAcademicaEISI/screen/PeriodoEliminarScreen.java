@@ -14,7 +14,7 @@ public class PeriodoEliminarScreen extends MainScreen implements FieldChangeList
 	private ButtonField bt1;
 	public ControlBD bdh;
 	private LabelField lb1;
-	
+	 
 	public PeriodoEliminarScreen() {
 		setTitle("Eliminar Periodo");
 		bdh = new ControlBD();

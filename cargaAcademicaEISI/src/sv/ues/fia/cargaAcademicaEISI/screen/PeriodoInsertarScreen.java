@@ -18,7 +18,7 @@ public class PeriodoInsertarScreen extends MainScreen implements FieldChangeList
 	private ButtonField bt1;
 	private LabelField lb1;
 	public ControlBD bdh;
-	
+	 
 	public PeriodoInsertarScreen() {
 		setTitle("Insertar Periodo");
 		bdh = new ControlBD();

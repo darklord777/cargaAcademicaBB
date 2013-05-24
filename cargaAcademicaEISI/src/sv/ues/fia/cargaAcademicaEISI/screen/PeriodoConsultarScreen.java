@@ -17,7 +17,7 @@ public class PeriodoConsultarScreen extends MainScreen implements FieldChangeLis
 	private ButtonField bt1;
 	public ControlBD bdh;
 	private LabelField lb1;
-	
+	 
 	public PeriodoConsultarScreen() {
 		setTitle("Consultar Periodo");
 		bdh = new ControlBD();
