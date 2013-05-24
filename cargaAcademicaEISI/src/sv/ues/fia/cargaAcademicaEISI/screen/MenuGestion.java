@@ -110,10 +110,10 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 						new MateriaConsultarScreen());
 			if (nombre == "Gestion tabla Area de Materia")
 				UiApplication.getUiApplication().pushScreen(
-						new MateriaConsultarScreen());
+						new AreaMateriaConsultarScreen());
 			if (nombre == "Gestion tabla Detalle Gpo Asignado")
 				UiApplication.getUiApplication().pushScreen(
-						new MateriaConsultarScreen());
+						new DetGpoAsignadoConsultarScreen());
 		}
 
 		if (field == btnfield4) {
