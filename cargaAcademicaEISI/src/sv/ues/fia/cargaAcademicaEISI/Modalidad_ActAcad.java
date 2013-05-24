@@ -4,7 +4,7 @@ public class Modalidad_ActAcad {
 	private String idModalActAcad;
 	private String NombreModalAA;
 	private String DesHrsMAA;
-	
+	 
 	public Modalidad_ActAcad(){
 		
 	}

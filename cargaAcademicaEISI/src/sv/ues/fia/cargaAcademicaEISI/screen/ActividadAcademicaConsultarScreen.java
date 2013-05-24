@@ -10,7 +10,7 @@ import net.rim.device.api.ui.component.LabelField;
 import net.rim.device.api.ui.container.MainScreen;
 
 public class ActividadAcademicaConsultarScreen extends MainScreen implements FieldChangeListener {
-
+ 
 	private EditField idActAcad;
 	private EditField idModC;
 	private EditField nombreAA;

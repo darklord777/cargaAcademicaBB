@@ -4,7 +4,7 @@ public class Modalidad_Curso {
 	private String idModalCurso;
 	private String NombreModal;
 	private String DescHoras;
-	
+	 
 	public Modalidad_Curso() {		
 	}
 	

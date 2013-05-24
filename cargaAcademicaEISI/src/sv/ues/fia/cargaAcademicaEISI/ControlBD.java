@@ -1062,7 +1062,7 @@ public class ControlBD {
 		Cursor c = st.getCursor();
 		Row r;
 		if(c.next())
-		{
+		{ 
 		r = c.getRow();
 		al.setIdModalActAcad(idmodalidad);
 		al.setNombreModalAA(r.getString(0));
