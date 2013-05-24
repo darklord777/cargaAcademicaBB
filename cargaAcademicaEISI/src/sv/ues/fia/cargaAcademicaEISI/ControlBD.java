@@ -637,10 +637,26 @@ public class ControlBD {
 		}
 	}
 
-	public boolean EliminarDepto(String codmate) {
+	public boolean EliminarDepto(String idepto) {
 		try {
 			Statement st = db
-					.createStatement("DELETE FROM DEPARTAMENTO WHERE CODIGOMATERIA=?");
+					.createStatement("DELETE FROM DEPARTAMENTO WHERE IDDEPARTAMENTO=?");
+			st.prepare();
+			st.bind(1, idepto);
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean EliminarMateria(String codmate) {
+		try {
+			Statement st = db
+					.createStatement("DELETE FROM MATERIA WHERE CODIGOMATERIA=?");
 			st.prepare();
 			st.bind(1, codmate);
 			st.execute();
@@ -653,12 +669,12 @@ public class ControlBD {
 		}
 	}
 
-	public boolean EliminarDepto(String codmate) {
+	public boolean EliminarAreaMat(String areamat) {
 		try {
 			Statement st = db
-					.createStatement("DELETE FROM DEPARTAMENTO WHERE CODIGOMATERIA=?");
+					.createStatement("DELETE FROM AREA_MATERIA WHERE IDAREAMAT=?");
 			st.prepare();
-			st.bind(1, codmate);
+			st.bind(1, areamat);
 			st.execute();
 			st.close();
 			return true;
@@ -669,12 +685,12 @@ public class ControlBD {
 		}
 	}
 
-	public boolean EliminarDepto(String codmate) {
+	public boolean EliminarDetGpoAsig(String gpoasig) {
 		try {
 			Statement st = db
-					.createStatement("DELETE FROM DEPARTAMENTO WHERE CODIGOMATERIA=?");
+					.createStatement("DELETE FROM DETALLE_GRUPO_ASIGNADO WHERE IDDETALLECURSO=?");
 			st.prepare();
-			st.bind(1, codmate);
+			st.bind(1, gpoasig);
 			st.execute();
 			st.close();
 			return true;
@@ -685,12 +701,174 @@ public class ControlBD {
 		}
 	}
 
-	public boolean EliminarDepto(String codmate) {
+	public Departamento ConsultarDepartamento(String idepto) {
+		Departamento departamento = new Departamento();
 		try {
 			Statement st = db
-					.createStatement("DELETE FROM DEPARTAMENTO WHERE CODIGOMATERIA=?");
+					.createStatement("SELECT NOM_DEPTO FROM DEPARTAMENTO WHERE IDDEPARTAMENTO=?");
 			st.prepare();
-			st.bind(1, codmate);
+			st.bind(1, idepto);
+			Cursor c = st.getCursor();
+			Row r;
+			if (c.next()) {
+				r = c.getRow();
+				departamento.setIddepartamento(idepto);
+				departamento.setNom_depto(r.getString(0));
+				st.close();
+			} else {
+				st.close();
+				departamento = null;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			departamento = null;
+		}
+		return departamento;
+	}
+
+	public Materia ConsultarMateria(String codmat) {
+		Materia materia = new Materia();
+		try {
+			Statement st = db
+					.createStatement("SELECT NOM_MATERIA FROM MATERIA WHERE CODIGOMATERIA=?");
+			st.prepare();
+			st.bind(1, codmat);
+			Cursor c = st.getCursor();
+			Row r;
+			if (c.next()) {
+				r = c.getRow();
+				materia.setCodigomateria(codmat);
+				materia.setNom_materia(r.getString(0));
+				st.close();
+			} else {
+				st.close();
+				materia = null;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			materia = null;
+		}
+		return materia;
+	}
+
+	public AreaMateria ConsultarAreaMat(String idareamat) {
+		AreaMateria materia = new AreaMateria();
+		try {
+			Statement st = db
+					.createStatement("SELECT IDDEPARTAMENTO, CODIGOMATERIA FROM AREA_MATERIA WHERE IDAREAMAT=?");
+			st.prepare();
+			st.bind(1, idareamat);
+			Cursor c = st.getCursor();
+			Row r;
+			if (c.next()) {
+				r = c.getRow();
+				materia.setIdareamateria(idareamat);
+				materia.setIddepartamento(r.getString(0));
+				materia.setCodigomateria(r.getString(1));
+				st.close();
+			} else {
+				st.close();
+				materia = null;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			materia = null;
+		}
+		return materia;
+	}
+
+	public DetalleGrupoAsignado ConsultarDetGpoAsigt(String idetgpoasig) {
+		DetalleGrupoAsignado asignado = new DetalleGrupoAsignado();
+		try {
+			Statement st = db
+					.createStatement("SELECT CODIGOMATERIA, IDMODALIDAD, IDLOCAL FROM DETALLE_GRUPO_ASIGNADO WHERE IDDETALLECURSO=?");
+			st.prepare();
+			st.bind(1, idetgpoasig);
+			Cursor c = st.getCursor();
+			Row r;
+			if (c.next()) {
+				r = c.getRow();
+				asignado.setIddetallecurso(idetgpoasig);
+				asignado.setCodigomateria(r.getString(0));
+				asignado.setIdmodalidad(r.getString(1));
+				asignado.setIdlocal(r.getString(1));
+				st.close();
+			} else {
+				st.close();
+				asignado = null;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			asignado = null;
+		}
+		return asignado;
+	}
+
+	public boolean Actualizar(Departamento departamento) {
+		try {
+			Statement st = db
+					.createStatement("UPDATE DEPARTAMENTO SET NOM_DEPTO=? WHERE IDDEPARTAMENTO=?");
+			st.prepare();
+			st.bind(1, departamento.getNom_depto());
+			st.bind(2, departamento.getIddepartamento());
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean Actualizar(Materia materia) {
+		try {
+			Statement st = db
+					.createStatement("UPDATE MATERIA SET NOM_MATERIA=? WHERE CODIGOMATERIA=?");
+			st.prepare();
+			st.bind(1, materia.getNom_materia());
+			st.bind(2, materia.getCodigomateria());
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean Actualizar(AreaMateria materia) {
+		try {
+			Statement st = db
+					.createStatement("UPDATE AREA_MATERIA SET IDDEPARTAMENTO=?, CODIGOMATERIA=? WHERE IDAREAMAT=?");
+			st.prepare();
+			st.bind(1, materia.getIddepartamento());
+			st.bind(2, materia.getCodigomateria());
+			st.bind(3, materia.getIdareamateria());
+			st.execute();
+			st.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean Actualizar(DetalleGrupoAsignado det) {
+		try {
+			Statement st = db
+					.createStatement("UPDATE DETALLE_GRUPO_ASIGNADO SET CODIGOMATERIA=?, IDMODALIDAD=?, IDLOCAL=? WHERE IDDETALLECURSO=?");
+			st.prepare();
+			st.bind(1, det.getCodigomateria());
+			st.bind(2, det.getIdmodalidad());
+			st.bind(3, det.getIdlocal());
+			st.bind(4, det.getIddetallecurso());
 			st.execute();
 			st.close();
 			return true;
