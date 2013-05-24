@@ -64,7 +64,5 @@ public class CicloActualizarScreen extends MainScreen implements FieldChangeList
 				lb1.setText("Error en modificacion");
 		}
 	}
-	
-	
 
 }
