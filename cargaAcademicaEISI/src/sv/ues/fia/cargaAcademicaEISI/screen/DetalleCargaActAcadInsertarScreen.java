@@ -62,4 +62,5 @@ public class DetalleCargaActAcadInsertarScreen extends MainScreen implements Fie
 
 			}
 		}
+
 }
