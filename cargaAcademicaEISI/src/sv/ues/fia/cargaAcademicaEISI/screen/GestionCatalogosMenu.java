@@ -26,18 +26,21 @@ public class GestionCatalogosMenu extends MainScreen implements
 				GridFieldManager.USE_ALL_HEIGHT
 						| GridFieldManager.USE_ALL_HEIGHT
 						| GridFieldManager.FIXED_SIZE);
+
+		gstDeptoMenu = new BitmapButtonField(bmptabla1, bmp0);
 		gstDeptoMenu.setChangeListener(this);
-		
+
 		grid.insert(gstDeptoMenu, 0, 0);
 		grid.insert(lb1, 0, 1);
-		
+
 		add(grid);
 	}
 
 	public void fieldChanged(Field field, int context) {
 		if (field == gstDeptoMenu) {
 			if (nombre == "Admin. de Catalogos")
-				UiApplication.getUiApplication().pushScreen(new MenuGestion("Gestion tabla Departamento"));
+				UiApplication.getUiApplication().pushScreen(
+						new MenuGestion("Gestion tabla Departamento"));
 		}
 	}
 
