@@ -3,12 +3,12 @@ package sv.ues.fia.cargaAcademicaEISI;
 public class Modalidad_Curso {
 	private String idModalCurso;
 	private String NombreModal;
-	private int DescHoras;
+	private String DescHoras;
 	
 	public Modalidad_Curso() {		
 	}
 	
-	public Modalidad_Curso(String idmodalCurso, String nombreModal, int descHoras) {		
+	public Modalidad_Curso(String idmodalCurso, String nombreModal, String descHoras) {		
 		this.idModalCurso = idmodalCurso;
 		this.NombreModal = nombreModal;
 		this.DescHoras = descHoras;
@@ -30,13 +30,12 @@ public class Modalidad_Curso {
 		NombreModal = nombreModal;
 	}
 
-	public int getDescHoras() {
+	public String getDescHoras() {
 		return DescHoras;
 	}
 
-	public void setDescHoras(int descHoras) {
+	public void setDescHoras(String descHoras) {
 		DescHoras = descHoras;
-	}
-
+	}	
 	
 }

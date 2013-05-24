@@ -1034,7 +1034,7 @@ public class ControlBD {
 		r = c.getRow();
 		al.setIdModalCurso(idmodalidadCurso);
 		al.setNombreModal(r.getString(0));
-		al.setDescHoras(r.getInteger(1));		
+		al.setDescHoras(r.getString(1));		
 		st.close();
 		}
 		else
