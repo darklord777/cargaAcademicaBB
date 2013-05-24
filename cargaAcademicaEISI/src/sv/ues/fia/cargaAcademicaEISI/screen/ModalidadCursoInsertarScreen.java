@@ -26,10 +26,10 @@ public class ModalidadCursoInsertarScreen extends MainScreen implements FieldCha
 		// TODO Auto-generated constructor stub
 		setTitle("Insertar Modalidad Curso"); 
 		bdh = new ControlBD();
-		idModC = new EditField("Codigo del Local :","",6,EditField.FILTER_DEFAULT);
+		idModC = new EditField("Codigo de modalidad :","",6,EditField.FILTER_DEFAULT);
 		nombreMC = new EditField("Nombre de modalidad :","",20,EditField.FILTER_DEFAULT);
 		DesHrs = new EditField("Descuento Horas :","",5,EditField.FILTER_DEFAULT);
-		bt1 = new ButtonField("Insertar Local",ButtonField.CONSUME_CLICK);
+		bt1 = new ButtonField("Insertar Modalidad",ButtonField.CONSUME_CLICK);
 		bt1.setChangeListener(this);
 		lb1 = new LabelField("");
 		 add(idModC);
