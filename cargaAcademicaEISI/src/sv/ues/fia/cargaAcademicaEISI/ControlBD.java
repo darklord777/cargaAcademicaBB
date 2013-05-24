@@ -1066,7 +1066,7 @@ public class ControlBD {
 		r = c.getRow();
 		al.setIdModalActAcad(idmodalidad);
 		al.setNombreModalAA(r.getString(0));
-		al.setDesHrsMAA(r.getInteger(1));		
+		al.setDesHrsMAA(r.getString(1));		
 		st.close();
 		}
 		else

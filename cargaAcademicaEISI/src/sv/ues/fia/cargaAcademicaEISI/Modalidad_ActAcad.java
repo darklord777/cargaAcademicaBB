@@ -3,13 +3,13 @@ package sv.ues.fia.cargaAcademicaEISI;
 public class Modalidad_ActAcad {
 	private String idModalActAcad;
 	private String NombreModalAA;
-	private int DesHrsMAA;
+	private String DesHrsMAA;
 	
 	public Modalidad_ActAcad(){
 		
 	}
 	
-	public Modalidad_ActAcad(String idModalActAcad, String nombreModalAA,int desHrsMAA) {
+	public Modalidad_ActAcad(String idModalActAcad, String nombreModalAA,String desHrsMAA) {
 		this.idModalActAcad = idModalActAcad;
 		this.NombreModalAA = nombreModalAA;
 		this.DesHrsMAA = desHrsMAA;
@@ -31,13 +31,15 @@ public class Modalidad_ActAcad {
 		NombreModalAA = nombreModalAA;
 	}
 
-	public int getDesHrsMAA() {
+	public String getDesHrsMAA() {
 		return DesHrsMAA;
 	}
 
-	public void setDesHrsMAA(int desHrsMAA) {
+	public void setDesHrsMAA(String desHrsMAA) {
 		DesHrsMAA = desHrsMAA;
 	}
+
+	
 	
 
 }
