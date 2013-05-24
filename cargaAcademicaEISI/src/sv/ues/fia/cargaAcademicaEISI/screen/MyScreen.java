@@ -105,12 +105,12 @@ public final class MyScreen extends MainScreen implements FieldChangeListener {
 			UiApplication.getUiApplication().pushScreen(
 					new GestionCatalogosMenu("Admin. de Catalogos"));
 		}
-		/*
-		 * if (field == btnfield2) {
-		 * 
-		 * UiApplication.getUiApplication().pushScreen( new
-		 * MenuGestion("Admin. de docentes")); }
-		 */
+		
+		 if (field == btnfield2) {
+		 
+		UiApplication.getUiApplication().pushScreen( new
+		 MenuGestion("Admin. de docentes")); }
+		
 		
 		if (field == btnfield3) {
 

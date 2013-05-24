@@ -87,12 +87,26 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 			if (nombre == "Gestion tabla ModalidadCurso")
 				UiApplication.getUiApplication().pushScreen(
 						new ModalidadCursoInsertarScreen());
+			
+			/* Sergio*/
+			if(nombre=="Cargos")
+				UiApplication.getUiApplication().pushScreen(new CargoInsertarScreen());
+				if(nombre=="Docente_Cargos")
+				UiApplication.getUiApplication().pushScreen(new Docente_CargoInsertarScreen());
+				if(nombre=="Periodo")
+				UiApplication.getUiApplication().pushScreen(new PeriodoInsertarScreen());
+
 		}
 
 		if (field == btnfield2) {
 			if (nombre == "Gestion tabla Ciclo")
 				UiApplication.getUiApplication().pushScreen(
 						new CicloActualizarScreen());
+			if(nombre=="Cargos")
+				UiApplication.getUiApplication().pushScreen(new CargoActualizarScreen());
+				if(nombre=="Periodos")
+				UiApplication.getUiApplication().pushScreen(new PeriodoActualizarScreen());
+
 		}
 
 		if (field == btnfield3) {
@@ -129,6 +143,14 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 			if (nombre == "Gestion tabla ModalidadCurso")
 				UiApplication.getUiApplication().pushScreen(
 						new ModalidadCursoConsultarScreen());
+			
+			if(nombre=="Cargos")
+				UiApplication.getUiApplication().pushScreen(new CargoConsultarScreen());
+				if(nombre=="Docente_Cargos")
+				UiApplication.getUiApplication().pushScreen(new Docente_CargoConsultarScreen());
+				if(nombre=="Periodos")
+				UiApplication.getUiApplication().pushScreen(new PeriodoConsultarScreen());
+
 		}
 
 		if (field == btnfield4) {
@@ -150,6 +172,14 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 			if (nombre == "Gestion tabla ModalidadCurso")
 				UiApplication.getUiApplication().pushScreen(
 						new ModalidadCursoEliminarScreen());
+			
+			if(nombre=="Cargos")
+				UiApplication.getUiApplication().pushScreen(new CargoEliminarScreen());
+			if(nombre=="Docente_Cargos")
+				UiApplication.getUiApplication().pushScreen(new Docente_CargoEliminarScreen());
+			if(nombre=="Periodos")
+				UiApplication.getUiApplication().pushScreen(new PeriodoEliminarScreen());
+
 			
 
 		}
