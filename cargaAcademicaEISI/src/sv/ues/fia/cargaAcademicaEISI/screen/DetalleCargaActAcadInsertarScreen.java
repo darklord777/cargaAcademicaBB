@@ -1,14 +1,13 @@
 package sv.ues.fia.cargaAcademicaEISI.screen;
 
-import sv.ues.fia.cargaAcademicaEISI.ControlBD;
-import sv.ues.fia.cargaAcademicaEISI.DetalleCargaActAcad;
-import sv.ues.fia.cargaAcademicaEISI.DetalleCargaMat;
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.component.ButtonField;
 import net.rim.device.api.ui.component.EditField;
 import net.rim.device.api.ui.component.LabelField;
 import net.rim.device.api.ui.container.MainScreen;
+import sv.ues.fia.cargaAcademicaEISI.ControlBD;
+import sv.ues.fia.cargaAcademicaEISI.DetalleCargaActAcad;
 
 public class DetalleCargaActAcadInsertarScreen extends MainScreen implements FieldChangeListener   {
 
@@ -26,7 +25,7 @@ public class DetalleCargaActAcadInsertarScreen extends MainScreen implements Fie
 	 iddocente = new EditField("ID de Docente:  ","",8,EditField.FILTER_DEFAULT);
 	 anio = new EditField("Año del Ciclo:  ","",4,EditField.FILTER_NUMERIC);
 	 numero = new EditField("Numero de Ciclo:  ","",1,EditField.FILTER_NUMERIC);
-	 idactacad = new EditField("ID Actividad Academica:  ","",6,EditField.FILTER_NUMERIC);
+	 idactacad = new EditField("ID Actividad Academica:  ","",6,EditField.FILTER_DEFAULT);
 	 bt1 = new ButtonField("Insertar Actividades",ButtonField.CONSUME_CLICK);
 	 bt1.setChangeListener(this);
 	 lb1 = new LabelField("");
@@ -63,5 +62,4 @@ public class DetalleCargaActAcadInsertarScreen extends MainScreen implements Fie
 
 			}
 		}
-
 }

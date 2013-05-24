@@ -54,3 +54,4 @@ public class DetalleCargaMatConsultarScreen extends MainScreen implements FieldC
 	}
 
 }
+
