@@ -7,7 +7,6 @@ import net.rim.device.api.ui.component.EditField;
 import net.rim.device.api.ui.component.LabelField;
 import net.rim.device.api.ui.container.MainScreen;
 import sv.ues.fia.cargaAcademicaEISI.ControlBD;
-import sv.ues.fia.cargaAcademicaEISI.DetalleCargaMat;
 
 public class DetalleCargaMatEliminarScreen extends MainScreen implements FieldChangeListener {
 	private EditField anio;
@@ -40,23 +39,18 @@ public class DetalleCargaMatEliminarScreen extends MainScreen implements FieldCh
 			boolean a;
 			boolean b;
 			if (field.equals(bt1)) {
-				DetalleCargaMat nt = new DetalleCargaMat();
-				nt.setIddocente(iddocente.getText());
-				nt.setAnio(anio.getText());
-				nt.setNumero(numero.getText());
-				nt.setIddetallecurso(iddetallecurso.getText());
-
 				bdh.Abrir();
-				a = bdh.Insertar(nt);
+				a = bdh.EliminarDetalleCargaMat(iddocente.getText(), anio.getText(),numero.getText(), iddetallecurso.getText() );
 				bdh.Cerrar();
 				if (a) {
-					lb1.setText("Insercion de Registro realizada con exito.");
+					lb1.setText("Eliminacion Exitosa.");
 					anio.setText("");
 					numero.setText("");
 					iddocente.setText("");
+					iddetallecurso.setText("");
 					iddocente.setFocus();
 				} else
-					lb1.setText("No se pudo realizar la insercion.");
+					lb1.setText("No se pudo realizar la eliminacion.");
 			
 
 			}
