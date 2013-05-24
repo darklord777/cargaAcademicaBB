@@ -924,9 +924,101 @@ public class ControlBD {
 	// METODOS EMERSON
 	// ----------------------------------------------------------------------------------
 
-	// METODOS
-	// aGUSTIN----------------------------------------------------------------------------------
-
+	// METODOS AGUSTIN----------------------------------------------------------------------------------
+	
+	public boolean Insertar(Locales a){
+		  try {
+		   Statement st = db.createStatement("INSERT INTO LOCALES(IDLOCAL,CAPACIDAD) VALUES (?,?)");
+		   st.prepare();
+		   st.bind(1, a.getIdLocal());
+		   st.bind(2, a.getCapacidad());
+		   st.execute();
+		   st.close();
+		   return true;
+		  } catch (Exception e) {
+			  e.printStackTrace();
+		   return false;
+		  }
+		} 
+	public boolean Insertar(Modalidad_Curso b){
+		  try {
+		   Statement st = db.createStatement("INSERT INTO MODALIDAD_CURSO(IDMODALIDAD,NOM_MODALIDAD,DESCUENTO_HORAS) VALUES (?,?,?)");
+		   st.prepare();
+		   st.bind(1, b.getIdModalCurso());
+		   st.bind(2, b.getNombreModal());
+		   st.bind(3, b.getDescHoras());
+		   st.execute();
+		   st.close();
+		   return true;
+		  } catch (Exception e) {
+			  e.printStackTrace();
+		   return false;
+		  }
+		}
+	
+	public boolean Insertar(Modalidad_ActAcad c){
+		  try {
+		   Statement st = db.createStatement("INSERT INTO MODALIDAD_ACT_ACAD(IDMODALIDAD,NOM_MODALIDAD,DESCUENTO_HORAS) VALUES (?,?,?)");
+		   st.prepare();
+		   st.bind(1, c.getIdModalActAcad());
+		   st.bind(2, c.getNombreModalAA());
+		   st.bind(3, c.getDesHrsMAA());
+		   st.execute();
+		   st.close();
+		   return true;
+		  } catch (Exception e) {
+			  e.printStackTrace();
+		   return false;
+		  }
+		}
+	
+	public boolean Insertar(ActividadAcademica d){
+		  try {
+		   Statement st = db.createStatement("INSERT INTO ACTIVIDAD_ACADEMICA(IDACTACAD,IDMODALIDAD,NOM_ACT_ACAD,CARGO) VALUES (?,?,?,?)");
+		   st.prepare();
+		   st.bind(1, d.getIdActividadAcad());
+		   st.bind(2, d.getIdModalActAcad());
+		   st.bind(3, d.getNombreActAcademica());
+		   st.bind(4, d.getCargo());
+		   st.execute();
+		   st.close();
+		   return true;
+		  } catch (Exception e) {
+			  e.printStackTrace();
+		   return false;
+		  }
+		}
+	
+	public Locales ConsultarLocal (String idlocal){
+		Locales al = new Locales();
+		try
+		{
+		Statement st = db.createStatement("SELECT idlocal,capacidad FROM alumno WHERE idlocal=?");
+		st.prepare();
+		st.bind(1, idlocal);
+		Cursor c = st.getCursor();
+		Row r;
+		if(c.next())
+		{
+		r = c.getRow();
+		al.setIdLocal(idlocal);
+		al.setCapacidad(r.getString(0));
+		st.close();
+		}
+		else
+		{
+		st.close();
+		al = null;
+		}
+		}
+		catch ( Exception e )
+		{
+		System.out.println( e.getMessage() );
+		e.printStackTrace();
+		al =null;
+		}
+		return al;
+	}
 	// METODOS SERGIO
 	// ----------------------------------------------------------------------------------
 
