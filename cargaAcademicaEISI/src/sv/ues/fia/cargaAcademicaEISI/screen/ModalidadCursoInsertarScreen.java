@@ -17,7 +17,7 @@ public class ModalidadCursoInsertarScreen extends MainScreen implements FieldCha
 	private ButtonField bt1;
 	private LabelField lb1;
 	public ControlBD bdh;
-	
+	 
 	/**
 	 * 
 	 */

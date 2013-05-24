@@ -16,7 +16,7 @@ public class ModalidadActAcadInsertarScreen extends MainScreen implements FieldC
 	private EditField nombreMA;
 	private EditField DesHrs;
 	private ButtonField bt1;
-	private LabelField lb1;
+	private LabelField lb1; 
 	public ControlBD bdh;
 	/**
 	 * 
