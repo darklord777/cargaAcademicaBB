@@ -18,7 +18,7 @@ public class DepartamentoInsertarScreen extends MainScreen implements
 	public ControlBD bdh;
 
 	public DepartamentoInsertarScreen() {
-		setTitle("Insertar Ciclo");
+		setTitle("Insertar Departamento");
 		bdh = new ControlBD();
 		idepto = new EditField("Codigo departamento :", "", 6,
 				EditField.EDITABLE);

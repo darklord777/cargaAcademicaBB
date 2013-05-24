@@ -29,7 +29,10 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 		bmpeliminar = Bitmap.getBitmapResource("btneliminar.jpg");
 		bmp0 = Bitmap.getBitmapResource("buttonback.png");
 
-		GridFieldManager grid = new GridFieldManager(2, 2,GridFieldManager.USE_ALL_HEIGHT| GridFieldManager.USE_ALL_HEIGHT| GridFieldManager.FIXED_SIZE);
+		GridFieldManager grid = new GridFieldManager(2, 2,
+				GridFieldManager.USE_ALL_HEIGHT
+						| GridFieldManager.USE_ALL_HEIGHT
+						| GridFieldManager.FIXED_SIZE);
 		btnfield1 = new BitmapButtonField(bmpagregar, bmp0);
 		btnfield1.setChangeListener(this);
 		btnfield2 = new BitmapButtonField(bmpmodificar, bmp0);
@@ -38,32 +41,38 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 		btnfield3.setChangeListener(this);
 		btnfield4 = new BitmapButtonField(bmpeliminar, bmp0);
 		btnfield4.setChangeListener(this);
-		
+
 		grid.insert(btnfield1, 0, 0);
-		if (nombre != "Gestion tabla Carga Academica" && nombre != "Gestion tabla Detalle Materias" )
+		if (nombre != "Gestion tabla Carga Academica"
+				&& nombre != "Gestion tabla Detalle Materias")
 			grid.insert(btnfield2, 0, 1);
-		
+
 		grid.insert(btnfield3, 1, 0);
 		grid.insert(btnfield4, 1, 1);
-		
+
 		add(grid);
 	}
-	
+
 	public void fieldChanged(Field field, int context) {
 		if (field == btnfield1) {
 			if (nombre == "Gestion tabla Ciclo")
-				UiApplication.getUiApplication().pushScreen(new CicloInsertarScreen());
+				UiApplication.getUiApplication().pushScreen(
+						new CicloInsertarScreen());
 			if (nombre == "Gestion tabla Carga Academica")
-				UiApplication.getUiApplication().pushScreen(new CargaAcademicaInsertarScreen());
+				UiApplication.getUiApplication().pushScreen(
+						new CargaAcademicaInsertarScreen());
 			if (nombre == "Gestion tabla Detalle Materias")
-				UiApplication.getUiApplication().pushScreen(new DetalleCargaMatInsertarScreen());
+				UiApplication.getUiApplication().pushScreen(
+						new DetalleCargaMatInsertarScreen());
 			if (nombre == "Carga Actividades Academicas")
-				UiApplication.getUiApplication().pushScreen(new DetalleCargaActAcadInsertarScreen());
-			/*Mario*/
+				UiApplication.getUiApplication().pushScreen(
+						new DetalleCargaActAcadInsertarScreen());
+			/* Mario */
 			if (nombre == "Gestion tabla Departamento")
-				UiApplication.getUiApplication().pushScreen(new DepartamentoInsertarScreen());
+				UiApplication.getUiApplication().pushScreen(
+						new DepartamentoInsertarScreen());
 		}
-		
+
 		if (field == btnfield2) {
 			if (nombre == "Gestion tabla Ciclo")
 				UiApplication.getUiApplication().pushScreen(
@@ -78,16 +87,22 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 				UiApplication.getUiApplication().pushScreen(
 						new CargaAcademicaConsultarScreen());
 			if (nombre == "Gestion tabla Detalle Materias")
-				UiApplication.getUiApplication().pushScreen(new DetalleCargaMatConsultarScreen());
+				UiApplication.getUiApplication().pushScreen(
+						new DetalleCargaMatConsultarScreen());
+			/*Mario*/
+			if (nombre == "Gestion tabla Departamento")
+				UiApplication.getUiApplication().pushScreen(
+						new DepartamentoConsultarScreen());
 
 		}
 
 		if (field == btnfield4) {
 			if (nombre == "Gestion tabla Ciclo")
-				UiApplication.getUiApplication().pushScreen(new CicloEliminarScreen());
+				UiApplication.getUiApplication().pushScreen(
+						new CicloEliminarScreen());
 			if (nombre == "Gestion tabla Carga Academica")
-				UiApplication.getUiApplication().pushScreen(new CargaAcademicaEliminarScreen());
-			
+				UiApplication.getUiApplication().pushScreen(
+						new CargaAcademicaEliminarScreen());
 
 		}
 	}
