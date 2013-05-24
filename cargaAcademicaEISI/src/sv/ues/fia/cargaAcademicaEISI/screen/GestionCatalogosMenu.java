@@ -34,10 +34,7 @@ public class GestionCatalogosMenu extends MainScreen implements
 				GridFieldManager.USE_ALL_HEIGHT
 						| GridFieldManager.USE_ALL_HEIGHT
 						| GridFieldManager.FIXED_SIZE);
-		GridFieldManager grid2 = new GridFieldManager(2, 5,
-				GridFieldManager.USE_ALL_HEIGHT
-						| GridFieldManager.USE_ALL_HEIGHT
-						| GridFieldManager.FIXED_SIZE);
+		
 
 		gstDeptoMenu = new BitmapButtonField(bmptabla1, bmp0);
 		gstDeptoMenu.setChangeListener(this);
@@ -50,8 +47,8 @@ public class GestionCatalogosMenu extends MainScreen implements
 		grid.insert(lb1, 0, 1);
 		grid.insert(gstLocalesMenu, 1, 0);
 		grid.insert(lb2, 1, 1);
-		grid2.insert(gstModalidadCursoMenu,0,0);
-		grid2.insert(lb3, 0,1);
+		grid.insert(gstModalidadCursoMenu,2,0);
+		grid.insert(lb3, 2, 1);
 
 		add(grid);
 	}
