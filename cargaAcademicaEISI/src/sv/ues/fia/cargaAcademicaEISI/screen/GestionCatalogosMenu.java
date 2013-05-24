@@ -17,7 +17,7 @@ public class GestionCatalogosMenu extends MainScreen implements
 	private Bitmap bmptabla2;
 	private Bitmap bmptabla3;
 	private String nombre;
-	private Bitmap bmp0;
+	private Bitmap bmp0;  
 	private LabelField lb1;
 	private LabelField lb2;
 	private LabelField lb3;

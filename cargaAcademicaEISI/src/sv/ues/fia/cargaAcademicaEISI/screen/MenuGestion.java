@@ -18,7 +18,7 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 	private Bitmap bmpconsultar;
 	private Bitmap bmpeliminar;
 	private Bitmap bmp0;
-	private String nombre;
+	private String nombre;  
 
 	public MenuGestion(String opcion) {
 		setTitle(opcion);

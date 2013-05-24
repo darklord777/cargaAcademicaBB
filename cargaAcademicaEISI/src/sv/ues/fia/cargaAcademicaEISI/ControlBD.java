@@ -11,7 +11,7 @@ import net.rim.device.api.io.URI;
 public class ControlBD {
 	Database db;
 	URI uri1;
-
+  
 	public void CrearBase() {
 		Statement st;
 		try {
