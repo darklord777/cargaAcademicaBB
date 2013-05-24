@@ -46,7 +46,7 @@ public class MateriaConsultarScreen extends MainScreen implements
 					lb1.setText("No se encuentra el Ciclo.");
 				}
 			} else {
-				lb1.setText("Debe indicar el codigo de departamento");
+				lb1.setText("Debe indicar el codigo de Materia");
 			}
 
 		}
