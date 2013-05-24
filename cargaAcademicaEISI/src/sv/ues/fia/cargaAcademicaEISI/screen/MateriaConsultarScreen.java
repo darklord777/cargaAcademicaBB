@@ -43,7 +43,7 @@ public class MateriaConsultarScreen extends MainScreen implements
 					nommat.setText(materia.getNom_materia());
 					lb1.setText("");
 				} else {
-					lb1.setText("No se encuentra el Ciclo.");
+					lb1.setText("No se encuentra la Materia.");
 				}
 			} else {
 				lb1.setText("Debe indicar el codigo de Materia");

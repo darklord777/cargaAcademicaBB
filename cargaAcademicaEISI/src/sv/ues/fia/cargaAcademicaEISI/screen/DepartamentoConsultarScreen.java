@@ -46,7 +46,7 @@ public class DepartamentoConsultarScreen extends MainScreen implements
 					nomdepto.setText(departamento.getNom_depto());
 					lb1.setText("");
 				} else {
-					lb1.setText("No se encuentra el Ciclo.");
+					lb1.setText("No se encuentra el Departamento.");
 				}
 			} else {
 				lb1.setText("Debe indicar el codigo de departamento");
