@@ -1,14 +1,13 @@
 package sv.ues.fia.cargaAcademicaEISI.screen;
 
-import sv.ues.fia.cargaAcademicaEISI.ControlBD;
-import sv.ues.fia.cargaAcademicaEISI.Departamento;
-import sv.ues.fia.cargaAcademicaEISI.Materia;
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.component.ButtonField;
 import net.rim.device.api.ui.component.EditField;
 import net.rim.device.api.ui.component.LabelField;
 import net.rim.device.api.ui.container.MainScreen;
+import sv.ues.fia.cargaAcademicaEISI.ControlBD;
+import sv.ues.fia.cargaAcademicaEISI.Materia;
 
 public class MateriaConsultarScreen extends MainScreen implements
 		FieldChangeListener {
