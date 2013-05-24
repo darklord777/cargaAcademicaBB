@@ -109,12 +109,18 @@ public final class MyScreen extends MainScreen implements FieldChangeListener {
 		 * if (field == btnfield2) {
 		 * 
 		 * UiApplication.getUiApplication().pushScreen( new
-		 * MenuGestion("Admin. de docentes")); } if (field == btnfield3) {
-		 * 
-		 * UiApplication.getUiApplication().pushScreen( new
-		 * MenuGestion("Admin. de Materias"));
-		 * 
-		 * } if (field == btnfield4) {
+		 * MenuGestion("Admin. de docentes")); }
+		 */
+		
+		if (field == btnfield3) {
+
+			UiApplication.getUiApplication().pushScreen(
+					new GestionMateriasMenu("Admin. de Materias"));
+
+		}
+		
+		/*
+		 * if (field == btnfield4) {
 		 * 
 		 * UiApplication.getUiApplication().pushScreen( new
 		 * MenuGestion("Admin. Actividades Academicas"));
