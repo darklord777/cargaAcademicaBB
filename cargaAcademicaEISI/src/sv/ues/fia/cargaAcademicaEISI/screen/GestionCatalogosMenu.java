@@ -11,6 +11,8 @@ import net.rim.device.api.ui.container.MainScreen;
 public class GestionCatalogosMenu extends MainScreen implements
 		FieldChangeListener {
 	private BitmapButtonField gstDeptoMenu;
+	private BitmapButtonField gstLocalesMenu;
+	private BitmapButtonField gstModalidadCursoMenu;
 	private Bitmap bmptabla1;
 	private Bitmap bmptabla2;
 	private Bitmap bmptabla3;
@@ -21,7 +23,6 @@ public class GestionCatalogosMenu extends MainScreen implements
 	private LabelField lb3;
 	public GestionCatalogosMenu(String opcion) {
 		setTitle(opcion);
-		nombre = opcion;
 		bmptabla1 = Bitmap.getBitmapResource("tabla1.png");
 		bmptabla2 = Bitmap.getBitmapResource("tabla2.png");
 		bmptabla3 = Bitmap.getBitmapResource("tabla3.png");
@@ -33,14 +34,24 @@ public class GestionCatalogosMenu extends MainScreen implements
 				GridFieldManager.USE_ALL_HEIGHT
 						| GridFieldManager.USE_ALL_HEIGHT
 						| GridFieldManager.FIXED_SIZE);
+		GridFieldManager grid2 = new GridFieldManager(2, 5,
+				GridFieldManager.USE_ALL_HEIGHT
+						| GridFieldManager.USE_ALL_HEIGHT
+						| GridFieldManager.FIXED_SIZE);
 
 		gstDeptoMenu = new BitmapButtonField(bmptabla1, bmp0);
 		gstDeptoMenu.setChangeListener(this);
-		gstDeptoMenu = new BitmapButtonField(bmptabla2, bmp0);
-		gstDeptoMenu.setChangeListener(this);
+		gstLocalesMenu = new BitmapButtonField(bmptabla2, bmp0);
+		gstLocalesMenu.setChangeListener(this);
+		gstModalidadCursoMenu = new BitmapButtonField(bmptabla3, bmp0);
+		gstModalidadCursoMenu.setChangeListener(this);
 
 		grid.insert(gstDeptoMenu, 0, 0);
 		grid.insert(lb1, 0, 1);
+		grid.insert(gstLocalesMenu, 1, 0);
+		grid.insert(lb2, 1, 1);
+		grid2.insert(gstModalidadCursoMenu,0,0);
+		grid2.insert(lb3, 0,1);
 
 		add(grid);
 	}
@@ -51,6 +62,16 @@ public class GestionCatalogosMenu extends MainScreen implements
 				UiApplication.getUiApplication().pushScreen(
 						new MenuGestion("Gestion tabla Departamento"));
 		}
+		if (field == gstLocalesMenu) {
+				if (nombre == "Admin. de Catalogos")
+					UiApplication.getUiApplication().pushScreen(
+							new MenuGestion("Gestion tabla Locales"));
+		}
+		if (field == gstModalidadCursoMenu) {
+				if (nombre == "Admin. de Catalogos")
+					UiApplication.getUiApplication().pushScreen(
+							new MenuGestion("Gestion tabla ModalidadCurso"));
+		}
+	
 	}
-
 }

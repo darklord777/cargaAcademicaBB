@@ -80,6 +80,13 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 			if (nombre == "Gestion tabla Detalle Gpo Asignado")
 				UiApplication.getUiApplication().pushScreen(
 						new DetGpoAsignadoInsertarScreen());
+			/* Miguel */
+			if (nombre == "Gestion tabla Locales")
+				UiApplication.getUiApplication().pushScreen(
+						new LocalesInsertarScreen());
+			if (nombre == "Gestion tabla ModalidadCurso")
+				UiApplication.getUiApplication().pushScreen(
+						new ModalidadCursoInsertarScreen());
 		}
 
 		if (field == btnfield2) {
@@ -114,6 +121,14 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 			if (nombre == "Gestion tabla Detalle Gpo Asignado")
 				UiApplication.getUiApplication().pushScreen(
 						new DetGpoAsignadoConsultarScreen());
+			
+			/* Miguel */
+			if (nombre == "Gestion tabla Locales")
+				UiApplication.getUiApplication().pushScreen(
+						new LocalesConsultarScreen());
+			if (nombre == "Gestion tabla ModalidadCurso")
+				UiApplication.getUiApplication().pushScreen(
+						new ModalidadCursoConsultarScreen());
 		}
 
 		if (field == btnfield4) {
@@ -127,6 +142,14 @@ public class MenuGestion extends MainScreen implements FieldChangeListener {
 				UiApplication.getUiApplication().pushScreen(new DetalleCargaMatEliminarScreen());
 			if (nombre == "Carga Actividades Academicas")
 				UiApplication.getUiApplication().pushScreen(new DetalleCargaActAcadEliminarScreen());
+			
+			/* Miguel */
+			if (nombre == "Gestion tabla Locales")
+				UiApplication.getUiApplication().pushScreen(
+						new LocalesEliminarScreen());
+			if (nombre == "Gestion tabla ModalidadCurso")
+				UiApplication.getUiApplication().pushScreen(
+						new ModalidadCursoEliminarScreen());
 			
 
 		}

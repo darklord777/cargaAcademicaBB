@@ -126,7 +126,7 @@ public class ControlBD {
 			st.execute();
 			st.reset();
 			st.close();
-			st = db.createStatement("CREATE TRIGGER fk_area_departam BEFORE INSERT ON AREA_MATERIA FOR EACH ROW BEGIN SELECT CASE WHEN ((SELECT IDDEPERTAMENTO FROM DEPARTAMENTO WHERE IDDEPARTAMENTO = NEW.IDDEPARTAMENTO) IS NULL) THEN RAISE(ABORT, 'No existe el Departamento') END; END;");
+			st = db.createStatement("CREATE TRIGGER fk_area_departam BEFORE INSERT ON AREA_MATERIA FOR EACH ROW BEGIN SELECT CASE WHEN ((SELECT IDDEPARTAMENTO FROM DEPARTAMENTO WHERE IDDEPARTAMENTO = NEW.IDDEPARTAMENTO) IS NULL) THEN RAISE(ABORT, 'No existe el Departamento') END; END;");
 			st.prepare();
 			st.execute();
 			st.reset();
