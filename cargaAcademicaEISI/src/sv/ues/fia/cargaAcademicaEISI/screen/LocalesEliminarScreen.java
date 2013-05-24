@@ -11,7 +11,6 @@ import net.rim.device.api.ui.container.MainScreen;
 public class LocalesEliminarScreen extends MainScreen implements FieldChangeListener  {
 
 	private EditField idLocal;
-	private EditField capacidad;
 	private ButtonField bt1;
 	private LabelField lb1;
 	public ControlBD bdh;	
@@ -28,7 +27,6 @@ public class LocalesEliminarScreen extends MainScreen implements FieldChangeList
 		 bt1.setChangeListener(this);
 		 lb1 = new LabelField("");
 		 add(idLocal);
-		 add(capacidad);
 		 add(bt1);
 		 add(lb1);
 	}
