@@ -60,6 +60,5 @@ public class DetalleCargaMatInsertarScreen extends MainScreen implements FieldCh
 
 			}
 		}
-	
 
 }
