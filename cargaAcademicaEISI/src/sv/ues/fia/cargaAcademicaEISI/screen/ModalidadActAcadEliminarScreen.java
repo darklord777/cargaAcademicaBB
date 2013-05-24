@@ -38,7 +38,7 @@ public class ModalidadActAcadEliminarScreen extends MainScreen implements FieldC
 		if(field.equals(bt1))
 		{
 			bdh.Abrir();
-			m=bdh.eliminarLocal(idModAA.getText());
+			m=bdh.EliminarModActA(idModAA.getText());
 			bdh.Cerrar();
 		if(m)
 			lb1.setText("Se elimino el local.");

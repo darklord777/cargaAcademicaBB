@@ -29,14 +29,14 @@ public class ModalidadCursoEliminarScreen extends MainScreen implements FieldCha
 		 add(idModC);
 		 add(bt1);
 		 add(lb1);
-	}
+	} 
 	public void fieldChanged(Field field, int context) {
 		// TODO Auto-generated method stub
 		boolean m;
 		if(field.equals(bt1))
 		{
 			bdh.Abrir();
-			m=bdh.eliminarLocal(idModC.getText());
+			m=bdh.eliminarModCurso(idModC.getText());
 			bdh.Cerrar();
 		if(m)
 			lb1.setText("Se elimino el local.");
